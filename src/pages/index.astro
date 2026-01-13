@@ -5,12 +5,9 @@ import Features2 from '~/components/widgets/Features2.astro';
 import Note from '~/components/widgets/Note.astro';
 import { Image } from 'astro:assets';
 import Contact from '~/components/widgets/Contact.astro';
+import type { ImageMetadata } from 'astro';
 
-/** * AUTOMATION ENGINE
- * This tells Astro to "scan" your folder for images.
- * No more manual lists!
- */
-const imageFiles = import.meta.glob('~/assets/images/gallery/*.{jpeg,jpg,png,webp}');
+const imageFiles = import.meta.glob<{ default: ImageMetadata }>('~/assets/images/gallery/*.{jpeg,jpg,png,webp}');
 
 const galleryItems = await Promise.all(
   Object.keys(imageFiles).map(async (path) => {
@@ -18,9 +15,9 @@ const galleryItems = await Promise.all(
     const fileName = path.split('/').pop()?.split('.')[0] || 'art';
     
     return {
-      id: fileName, // ID becomes the filename (e.g. "berlin-01")
-      title: fileName.replace(/-/g, ' ').replace(/_/g, ' '), // Cleans up "berlin-01" to "berlin 01"
-      src: (file as any).default,
+      id: fileName,
+      title: fileName.replace(/-/g, ' ').replace(/_/g, ' '),
+      src: file.default, // <--- No more "as any" here!
     };
   })
 );
