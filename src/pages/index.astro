@@ -46,12 +46,13 @@ const metadata = {
   <Note title="Philosophy:" description="The distance between intent and realization." />
 </div>
 
-  <Features2
+<Features2
     id="gallery"
     title="Visual Exposures"
     subtitle="Click an image to view the full exposure."
     items={galleryItems.map((item) => ({
       title: item.title,
+      description: '', // <--- Add this empty string!
       image: { src: item.src, alt: item.title },
       callToAction: { href: `#${item.id}` },
     }))}
