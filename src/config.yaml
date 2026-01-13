@@ -1,17 +1,14 @@
 site:
-  name: AstroWind
-  site: 'https://astrowind.vercel.app'
-  base: '/'
-  trailingSlash: false
+  name: 'QSuper.art'
+  origin: 'https://yaylifeltd.github.io'
+  basePathname: '/astrowind'
+  trailingSlash: true
 
-  googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
-
-# Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: 'QSuper.art — Time and Trust'
+    template: '%s — QSuper.art'
+  description: 'An art project about time, trust, and money we are not meant to touch.'
   robots:
     index: true
     follow: true
