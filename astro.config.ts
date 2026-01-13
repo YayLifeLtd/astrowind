@@ -22,6 +22,10 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
 export default defineConfig({
+
+  site: 'https://yaylifeltd.github.io',
+  base: '/astrowind',
+  
   output: 'static',
 
   integrations: [
