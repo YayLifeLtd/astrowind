@@ -4,6 +4,7 @@ import Hero from '~/components/widgets/Hero.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Note from '~/components/widgets/Note.astro';
 import { Image } from 'astro:assets';
+import Contact from '~/components/widgets/Contact.astro';
 
 /** * AUTOMATION ENGINE
  * This tells Astro to "scan" your folder for images.
@@ -69,8 +70,33 @@ const metadata = {
       </div>
     </div>
   ))}
+<Contact
+    id="contact"
+    title="Inquiries"
+    subtitle="For exhibition requests or print inquiries, please reach out below."
+    inputs={[
+      {
+        type: 'text',
+        name: 'name',
+        label: 'Name',
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Email',
+      },
+    ]}
+    textarea={{
+      label: 'Message',
+      name: 'message',
+    }}
+    disclaimer={{
+      label:
+        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+    }}
+    button="Send Message"
+  />
 </Layout>
-
 <style is:global>
   /* LIGHTBOX LOGIC */
   .lightbox-overlay {
